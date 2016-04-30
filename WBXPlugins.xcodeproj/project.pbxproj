@@ -1,0 +1,292 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BF721CF51CD4ECB500632DF8 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF721CF41CD4ECB500632DF8 /* AppKit.framework */; };
+		BF721CF71CD4ECB500632DF8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF721CF61CD4ECB500632DF8 /* Foundation.framework */; };
+		BF721CFB1CD4ECB500632DF8 /* WBXPlugins.xcscheme in Resources */ = {isa = PBXBuildFile; fileRef = BF721CFA1CD4ECB500632DF8 /* WBXPlugins.xcscheme */; };
+		BF721CFE1CD4ECB500632DF8 /* WBXPlugins.m in Sources */ = {isa = PBXBuildFile; fileRef = BF721CFD1CD4ECB500632DF8 /* WBXPlugins.m */; };
+		BF721D011CD4ECB500632DF8 /* NSObject_Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = BF721D001CD4ECB500632DF8 /* NSObject_Extension.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		BF721CF11CD4ECB500632DF8 /* WBXPlugins.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WBXPlugins.xcplugin; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF721CF41CD4ECB500632DF8 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		BF721CF61CD4ECB500632DF8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		BF721CFA1CD4ECB500632DF8 /* WBXPlugins.xcscheme */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = WBXPlugins.xcscheme; path = WBXPlugins.xcodeproj/xcshareddata/xcschemes/WBXPlugins.xcscheme; sourceTree = SOURCE_ROOT; };
+		BF721CFC1CD4ECB500632DF8 /* WBXPlugins.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WBXPlugins.h; sourceTree = "<group>"; };
+		BF721CFD1CD4ECB500632DF8 /* WBXPlugins.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WBXPlugins.m; sourceTree = "<group>"; };
+		BF721CFF1CD4ECB500632DF8 /* NSObject_Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSObject_Extension.h; sourceTree = "<group>"; };
+		BF721D001CD4ECB500632DF8 /* NSObject_Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSObject_Extension.m; sourceTree = "<group>"; };
+		BF721D021CD4ECB500632DF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BF721CEF1CD4ECB500632DF8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF721CF51CD4ECB500632DF8 /* AppKit.framework in Frameworks */,
+				BF721CF71CD4ECB500632DF8 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BF721CE81CD4ECB500632DF8 = {
+			isa = PBXGroup;
+			children = (
+				BF721CF81CD4ECB500632DF8 /* WBXPlugins */,
+				BF721CF31CD4ECB500632DF8 /* Frameworks */,
+				BF721CF21CD4ECB500632DF8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BF721CF21CD4ECB500632DF8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BF721CF11CD4ECB500632DF8 /* WBXPlugins.xcplugin */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BF721CF31CD4ECB500632DF8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BF721CF41CD4ECB500632DF8 /* AppKit.framework */,
+				BF721CF61CD4ECB500632DF8 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BF721CF81CD4ECB500632DF8 /* WBXPlugins */ = {
+			isa = PBXGroup;
+			children = (
+				BF721CFC1CD4ECB500632DF8 /* WBXPlugins.h */,
+				BF721CFD1CD4ECB500632DF8 /* WBXPlugins.m */,
+				BF721CFF1CD4ECB500632DF8 /* NSObject_Extension.h */,
+				BF721D001CD4ECB500632DF8 /* NSObject_Extension.m */,
+				BF721D021CD4ECB500632DF8 /* Info.plist */,
+				BF721CF91CD4ECB500632DF8 /* Supporting Files */,
+			);
+			path = WBXPlugins;
+			sourceTree = "<group>";
+		};
+		BF721CF91CD4ECB500632DF8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BF721CFA1CD4ECB500632DF8 /* WBXPlugins.xcscheme */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BF721CF01CD4ECB500632DF8 /* WBXPlugins */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF721D051CD4ECB500632DF8 /* Build configuration list for PBXNativeTarget "WBXPlugins" */;
+			buildPhases = (
+				BF721CED1CD4ECB500632DF8 /* Sources */,
+				BF721CEE1CD4ECB500632DF8 /* Resources */,
+				BF721CEF1CD4ECB500632DF8 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WBXPlugins;
+			productName = WBXPlugins;
+			productReference = BF721CF11CD4ECB500632DF8 /* WBXPlugins.xcplugin */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BF721CE91CD4ECB500632DF8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = sina;
+				TargetAttributes = {
+					BF721CF01CD4ECB500632DF8 = {
+						CreatedOnToolsVersion = 7.3;
+					};
+				};
+			};
+			buildConfigurationList = BF721CEC1CD4ECB500632DF8 /* Build configuration list for PBXProject "WBXPlugins" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = BF721CE81CD4ECB500632DF8;
+			productRefGroup = BF721CF21CD4ECB500632DF8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BF721CF01CD4ECB500632DF8 /* WBXPlugins */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BF721CEE1CD4ECB500632DF8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF721CFB1CD4ECB500632DF8 /* WBXPlugins.xcscheme in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BF721CED1CD4ECB500632DF8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF721CFE1CD4ECB500632DF8 /* WBXPlugins.m in Sources */,
+				BF721D011CD4ECB500632DF8 /* NSObject_Extension.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		BF721D031CD4ECB500632DF8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+			};
+			name = Debug;
+		};
+		BF721D041CD4ECB500632DF8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+			};
+			name = Release;
+		};
+		BF721D061CD4ECB500632DF8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEPLOYMENT_LOCATION = YES;
+				DSTROOT = "$(HOME)";
+				INFOPLIST_FILE = WBXPlugins/Info.plist;
+				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sina.WBXPlugins;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xcplugin;
+			};
+			name = Debug;
+		};
+		BF721D071CD4ECB500632DF8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEPLOYMENT_LOCATION = YES;
+				DSTROOT = "$(HOME)";
+				INFOPLIST_FILE = WBXPlugins/Info.plist;
+				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sina.WBXPlugins;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xcplugin;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BF721CEC1CD4ECB500632DF8 /* Build configuration list for PBXProject "WBXPlugins" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF721D031CD4ECB500632DF8 /* Debug */,
+				BF721D041CD4ECB500632DF8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BF721D051CD4ECB500632DF8 /* Build configuration list for PBXNativeTarget "WBXPlugins" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF721D061CD4ECB500632DF8 /* Debug */,
+				BF721D071CD4ECB500632DF8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BF721CE91CD4ECB500632DF8 /* Project object */;
+}
