@@ -7,6 +7,7 @@
 //
 
 #import "WBXPlugins.h"
+#import "WBPluginsManager.h"
 
 @interface WBXPlugins()
 
@@ -15,9 +16,9 @@
 
 @implementation WBXPlugins
 
-+ (instancetype)sharedPlugin
++ (instancetype)sharedPlugins
 {
-    return sharedPlugin;
+    return sharedPlugins;
 }
 
 - (id)initWithBundle:(NSBundle *)plugin
@@ -38,24 +39,12 @@
     //removeObserver
     [[NSNotificationCenter defaultCenter] removeObserver:self name:NSApplicationDidFinishLaunchingNotification object:nil];
     
-    // Create menu items, initialize UI, etc.
-    // Sample Menu Item:
-    NSMenuItem *menuItem = [[NSApp mainMenu] itemWithTitle:@"Edit"];
-    if (menuItem) {
-        [[menuItem submenu] addItem:[NSMenuItem separatorItem]];
-        NSMenuItem *actionMenuItem = [[NSMenuItem alloc] initWithTitle:@"Do Action" action:@selector(doMenuAction) keyEquivalent:@""];
-        //[actionMenuItem setKeyEquivalentModifierMask:NSAlphaShiftKeyMask | NSControlKeyMask];
-        [actionMenuItem setTarget:self];
-        [[menuItem submenu] addItem:actionMenuItem];
-    }
+    [self setupPlugins];
 }
 
-// Sample Action, for menu item:
-- (void)doMenuAction
+- (void) setupPlugins
 {
-    NSAlert *alert = [[NSAlert alloc] init];
-    [alert setMessageText:@"Hello, World"];
-    [alert runModal];
+    [WBPluginsManager launchPluginsFromBundle:self.bundle];
 }
 
 - (void)dealloc

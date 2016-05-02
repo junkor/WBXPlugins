@@ -10,12 +10,13 @@
 
 @class WBXPlugins;
 
-static WBXPlugins *sharedPlugin;
+static WBXPlugins *sharedPlugins;
 
 @interface WBXPlugins : NSObject
 
-+ (instancetype)sharedPlugin;
+@property (nonatomic, strong, readonly) NSBundle* bundle;
+
++ (instancetype)sharedPlugins;
 - (id)initWithBundle:(NSBundle *)plugin;
 
-@property (nonatomic, strong, readonly) NSBundle* bundle;
 @end

@@ -1,0 +1,16 @@
+//
+//  PrefixHeader.pch
+//  WBXPlugins
+//
+//  Created by jun on 5/1/16.
+//  Copyright © 2016 sina. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import <Cocoa/Cocoa.h>
+#import <AppKit/AppKit.h>
+#import "JRSwizzle.h"
+
+#endif /* PrefixHeader_pch */
