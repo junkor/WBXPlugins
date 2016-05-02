@@ -12,9 +12,12 @@
 
 @interface WBArchiveInfo : NSObject
 
+@property (nonatomic,assign,readonly) BOOL isMoveToDesktop;
+
 @property (nonatomic,strong) IDEArchive *sysArchive;
 @property (nonatomic,strong) NSString *productsDirectoryPath;
 
+@property (nonatomic,strong) NSString *name;
 @property (nonatomic,strong) NSString *ipaName;
 @property (nonatomic,strong) NSDate *creationDate;
 
@@ -24,6 +27,9 @@
 @property (nonatomic,strong) NSString *appPath;
 @property (nonatomic,strong) NSString *signingIdentity;
 @property (nonatomic,strong) NSString *bundleVersion;
+
+@property (nonatomic,strong) NSString *formName;
+@property (nonatomic,strong) NSString *formDesc;
 
 // 根据当前Archive的信息、路径，生成的创建本地ipa的shell命令
 @property (nonatomic,strong,readonly) NSArray *ipaCmd;

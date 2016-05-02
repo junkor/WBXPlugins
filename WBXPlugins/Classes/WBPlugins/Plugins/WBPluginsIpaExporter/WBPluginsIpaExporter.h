@@ -12,5 +12,4 @@
 
 @property (nonatomic,assign) BOOL enableExportMenuItem;
 
-
 @end

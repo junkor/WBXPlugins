@@ -7,9 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF37E81E1CD735370079C824 /* WBProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF37E81D1CD735370079C824 /* WBProgressViewController.m */; };
 		BF721CF51CD4ECB500632DF8 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF721CF41CD4ECB500632DF8 /* AppKit.framework */; };
 		BF721CF71CD4ECB500632DF8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF721CF61CD4ECB500632DF8 /* Foundation.framework */; };
 		BF721CFB1CD4ECB500632DF8 /* WBXPlugins.xcscheme in Resources */ = {isa = PBXBuildFile; fileRef = BF721CFA1CD4ECB500632DF8 /* WBXPlugins.xcscheme */; };
+		BF8A49761CD7316B00F63D43 /* WBProgressViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF8A49751CD7316B00F63D43 /* WBProgressViewController.xib */; };
+		BF8A49781CD7336D00F63D43 /* WBOTAUploadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF8A49771CD7336D00F63D43 /* WBOTAUploadViewController.xib */; };
+		BF8CE0C41CD7802B00F6B800 /* WBOTAUploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8CE0C31CD7802B00F6B800 /* WBOTAUploadViewController.m */; };
+		BF9B9C141CD71804008C0C12 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9B9C131CD71804008C0C12 /* MBProgressHUD.m */; };
 		BFAE17DF1CD59B12003E654C /* NSObject_Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAE17DB1CD59B12003E654C /* NSObject_Extension.m */; };
 		BFAE17E01CD59B12003E654C /* WBXPlugins.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAE17DE1CD59B12003E654C /* WBXPlugins.m */; };
 		BFAE17F01CD59CB5003E654C /* WBPluginsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAE17EF1CD59CB5003E654C /* WBPluginsManager.m */; };
@@ -29,11 +34,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BF37E81C1CD735370079C824 /* WBProgressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBProgressViewController.h; sourceTree = "<group>"; };
+		BF37E81D1CD735370079C824 /* WBProgressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBProgressViewController.m; sourceTree = "<group>"; };
 		BF721CF11CD4ECB500632DF8 /* WBXPlugins.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WBXPlugins.xcplugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF721CF41CD4ECB500632DF8 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		BF721CF61CD4ECB500632DF8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		BF721CFA1CD4ECB500632DF8 /* WBXPlugins.xcscheme */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = WBXPlugins.xcscheme; path = WBXPlugins.xcodeproj/xcshareddata/xcschemes/WBXPlugins.xcscheme; sourceTree = SOURCE_ROOT; };
 		BF721D021CD4ECB500632DF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF8A49751CD7316B00F63D43 /* WBProgressViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WBProgressViewController.xib; sourceTree = "<group>"; };
+		BF8A49771CD7336D00F63D43 /* WBOTAUploadViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WBOTAUploadViewController.xib; sourceTree = "<group>"; };
+		BF8CE0C21CD7802B00F6B800 /* WBOTAUploadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBOTAUploadViewController.h; sourceTree = "<group>"; };
+		BF8CE0C31CD7802B00F6B800 /* WBOTAUploadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBOTAUploadViewController.m; sourceTree = "<group>"; };
+		BF9B9C121CD71804008C0C12 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		BF9B9C131CD71804008C0C12 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		BFAE17DA1CD59B12003E654C /* NSObject_Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSObject_Extension.h; sourceTree = "<group>"; };
 		BFAE17DB1CD59B12003E654C /* NSObject_Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSObject_Extension.m; sourceTree = "<group>"; };
 		BFAE17DD1CD59B12003E654C /* WBXPlugins.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBXPlugins.h; sourceTree = "<group>"; };
@@ -135,6 +148,28 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		BF8A49741CD7311200F63D43 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BF8A49751CD7316B00F63D43 /* WBProgressViewController.xib */,
+				BF37E81C1CD735370079C824 /* WBProgressViewController.h */,
+				BF37E81D1CD735370079C824 /* WBProgressViewController.m */,
+				BF8A49771CD7336D00F63D43 /* WBOTAUploadViewController.xib */,
+				BF8CE0C21CD7802B00F6B800 /* WBOTAUploadViewController.h */,
+				BF8CE0C31CD7802B00F6B800 /* WBOTAUploadViewController.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BF9B9C111CD71804008C0C12 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				BF9B9C121CD71804008C0C12 /* MBProgressHUD.h */,
+				BF9B9C131CD71804008C0C12 /* MBProgressHUD.m */,
+			);
+			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
 		BFAE17D91CD59B12003E654C /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -181,6 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				BFCD64C21CD6D765007CFF54 /* Models */,
+				BF8A49741CD7311200F63D43 /* Views */,
 				BFCD64BC1CD62EE7007CFF54 /* WBOTAUploader */,
 				BFAE18021CD5E328003E654C /* HookClasses */,
 				BFAE17FA1CD5B787003E654C /* WBPluginsIpaExporter.h */,
@@ -192,6 +228,7 @@
 		BFAE17FD1CD5E2CA003E654C /* Venders */ = {
 			isa = PBXGroup;
 			children = (
+				BF9B9C111CD71804008C0C12 /* MBProgressHUD */,
 				BFCD64A81CD62D69007CFF54 /* AFNetworking */,
 				BFAE18061CD5E3CF003E654C /* XcodeHeaders */,
 				BFAE17FE1CD5E2CA003E654C /* JRSwizzle */,
@@ -326,6 +363,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF8A49761CD7316B00F63D43 /* WBProgressViewController.xib in Resources */,
+				BF8A49781CD7336D00F63D43 /* WBOTAUploadViewController.xib in Resources */,
 				BFAE17F31CD5A2B7003E654C /* WBPlugins.plist in Resources */,
 				BF721CFB1CD4ECB500632DF8 /* WBXPlugins.xcscheme in Resources */,
 			);
@@ -340,12 +379,14 @@
 			files = (
 				BFAE18051CD5E328003E654C /* IDEArchivesViewController+IpaExporter.m in Sources */,
 				BFCD64B71CD62D69007CFF54 /* AFNetworkReachabilityManager.m in Sources */,
+				BF37E81E1CD735370079C824 /* WBProgressViewController.m in Sources */,
 				BFCD64C51CD6D7AD007CFF54 /* WBArchiveInfo.m in Sources */,
 				BFAE17E01CD59B12003E654C /* WBXPlugins.m in Sources */,
 				BFAE17FC1CD5B787003E654C /* WBPluginsIpaExporter.m in Sources */,
 				BFAE17F81CD5A2EA003E654C /* WBPlugin.m in Sources */,
 				BFAE17F01CD59CB5003E654C /* WBPluginsManager.m in Sources */,
 				BFCD64B81CD62D69007CFF54 /* AFSecurityPolicy.m in Sources */,
+				BF8CE0C41CD7802B00F6B800 /* WBOTAUploadViewController.m in Sources */,
 				BFCD64B91CD62D69007CFF54 /* AFURLRequestSerialization.m in Sources */,
 				BFAE18011CD5E2CA003E654C /* JRSwizzle.m in Sources */,
 				BFAE17DF1CD59B12003E654C /* NSObject_Extension.m in Sources */,
@@ -353,6 +394,7 @@
 				BFCD64BF1CD62F02007CFF54 /* WBOTAUploader.m in Sources */,
 				BFCD64BB1CD62D69007CFF54 /* AFURLSessionManager.m in Sources */,
 				BFCD64B61CD62D69007CFF54 /* AFHTTPSessionManager.m in Sources */,
+				BF9B9C141CD71804008C0C12 /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

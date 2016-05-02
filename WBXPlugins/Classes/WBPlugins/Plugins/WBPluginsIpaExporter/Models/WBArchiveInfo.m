@@ -11,7 +11,7 @@
 
 @interface WBArchiveInfo ()
 
-@property (nonatomic,assign) BOOL isMoveToDesktop;
+@property (nonatomic,assign,readwrite) BOOL isMoveToDesktop;
 
 @end
 
@@ -34,6 +34,7 @@
 - (void) setupInfosForArchive:(IDEArchive *)archive
 {
     _productsDirectoryPath = archive.productsDirectoryPath.pathString;
+    _name = archive.name;
     _ipaName = [archive.name stringByAppendingString:@".ipa"];
     _creationDate = archive.creationDate;
     

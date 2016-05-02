@@ -8,6 +8,7 @@
 
 #import "WBOTAUploader.h"
 #import "AFHTTPSessionManager.h"
+#import "WBArchiveInfo.h"
 
 @implementation WBOTAUploader
 
@@ -41,7 +42,13 @@
 
     NSMutableDictionary *paramDic = [NSMutableDictionary dictionary];
     if (bundleID) {
-        [paramDic setObject:bundleID forKey:@"app_bundle_id"];
+        NSString *app_bundle_id = bundleID;
+        // app_bundle_id主要用于应用分类。微博Inhouse包也归类于微博
+        if ([app_bundle_id isEqualToString:@"com.sina.weibo.inhouse"]) {
+            app_bundle_id = @"com.sina.weibo";
+        }
+        [paramDic setObject:app_bundle_id forKey:@"app_bundle_id"];
+        [paramDic setObject:bundleID forKey:@"force_bundle_id"];
     }
     if (name) {
         [paramDic setObject:name forKey:@"version"];
@@ -52,12 +59,20 @@
     [paramDic setObject:@(pkgType) forKey:@"pkg_type"];
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    [[manager POST:[self OTAUploadURL] parameters:paramDic constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+    // 默认是Json解析
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    NSURLSessionDataTask *dataTask = [manager POST:[self OTAUploadURL] parameters:paramDic constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         NSError *error = nil;
-        NSURL *fileURL = [NSURL URLWithString:filepath];
-        [formData appendPartWithFileURL:fileURL name:@"pkg_file" error:&error];
-        if (error) {
-            failure(nil,error);
+        NSURL *fileURL = [NSURL fileURLWithPath:filepath];
+        if (fileURL) {
+            [formData appendPartWithFileURL:fileURL name:@"pkg_file" error:&error];
+            if (error && failure) {
+                failure(nil,error);
+            }
+        }else{
+            if (failure) {
+                failure(nil,[NSError errorWithDomain:@"Error fileURL" code:10001 userInfo:nil]);
+            }
         }
     } progress:^(NSProgress * _Nonnull progress) {
         if (uploadProgress) {
@@ -71,7 +86,30 @@
         if (failure) {
             failure(task,error);
         }
-    }] resume];
+    }];
+    [dataTask resume];
+}
+
++ (void) uploadArchive:(WBArchiveInfo * _Nonnull)archiveInfo
+              progress:(nullable void (^)(NSProgress * _Nonnull))uploadProgress
+               success:(nullable void (^)(NSURLSessionDataTask * _Nonnull task, id _Nullable responseObject))success
+               failure:(nullable void (^)(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error))failure
+{
+    if (archiveInfo == nil) {
+        return;
+    }
+    NSString *name = archiveInfo.formName;
+    if (name == nil) {
+        name = archiveInfo.name;
+    }
+    [self uploadIpa:archiveInfo.ipaPath
+           bundleID:archiveInfo.bundleID
+               name:name
+               desc:archiveInfo.formDesc
+            pkgType:WBEPKG_TYPE_Temp
+           progress:uploadProgress
+            success:success
+            failure:failure];
 }
 
 @end

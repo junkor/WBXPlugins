@@ -10,7 +10,7 @@
 
 @class WBXPlugins;
 
-static WBXPlugins *sharedPlugins;
+static WBXPlugins *sharedPluginsRefernce = nil;
 
 @interface WBXPlugins : NSObject
 

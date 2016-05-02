@@ -18,7 +18,7 @@
 
 + (instancetype)sharedPlugins
 {
-    return sharedPlugins;
+    return sharedPluginsRefernce;
 }
 
 - (id)initWithBundle:(NSBundle *)plugin
