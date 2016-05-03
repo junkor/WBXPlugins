@@ -41,5 +41,6 @@
                    isMoveDesktop:(BOOL)isMoveDesktop;
 
 - (BOOL) generateIpa;
+- (BOOL) cleanTmpIpa;
 
 @end

@@ -62,8 +62,9 @@
         cmds = @[cmdCopy, cmdZip, cmdRemove, cmdMove];
     }
     
+    int result = 0;
     for (NSString *cmd in cmds) {
-        system(cmd.UTF8String);
+        result = system(cmd.UTF8String);
     }
     
     NSString *ipaPath = [self.productsDirectoryPath stringByAppendingFormat:@"/%@",self.ipaName];
@@ -73,6 +74,20 @@
         return YES;
     }
     return NO;
+}
+
+- (BOOL) cleanTmpIpa
+{
+    BOOL result = NO;
+    if ([[NSFileManager defaultManager] fileExistsAtPath:self.ipaPath]) {
+        result = [[NSFileManager defaultManager] removeItemAtPath:self.ipaPath error:nil];
+    }
+    return result;
+}
+
+- (void)dealloc
+{
+    
 }
 
 @end

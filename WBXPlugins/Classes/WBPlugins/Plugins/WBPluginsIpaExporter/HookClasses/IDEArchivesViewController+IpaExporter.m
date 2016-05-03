@@ -93,7 +93,7 @@
     [controller beginIndeterminate];
     
     NSAlert *alert = [[NSAlert alloc] init];
-    alert.messageText = @"generating ipa now, hold on...";
+    alert.messageText = @"正在创建ipa, 稍后...";
     alert.accessoryView = controller.view;
     
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
@@ -101,49 +101,54 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             [alert.accessoryView removeFromSuperview];
             alert.accessoryView = nil;
-            alert.messageText = [NSString stringWithFormat:@"%@ \nis on desktop now.", archInfo.ipaName];
+            alert.messageText = @"ipa创建成功，在桌面上了。";
             [alert layout];
         });
     });
     
     NSView *contentView = [self valueForKey:@"view"];
     NSWindow *window = contentView.window;
+    [window becomeKeyWindow];
     [alert beginSheetModalForWindow:window completionHandler:nil];
 }
 
 - (void) exportIpaToOTA:(WBArchiveInfo *)archInfo
 {
-    WBProgressViewController * progressController = [self progressViewController];
-    [progressController beginIndeterminate];
-    
     NSAlert *alert = [[NSAlert alloc] init];
-    alert.messageText = @"正在创建ipa, 稍后...";
-    alert.accessoryView = progressController.view;
     [alert addButtonWithTitle:@"Cancel"];
     
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+    WBOTAUploadViewController *uploadController = [self uploadViewController];
+    alert.messageText = @"请填写相关的包信息";
+    alert.accessoryView = uploadController.view;
+    [alert layout];
+    
+    // 先添加到界面上，再填充内容
+    [uploadController resetFormInfoForArchInfo:archInfo];
+    
+    // 用户点击upload按钮以后的block
+    [uploadController setUploadBlock:^(NSString *name, NSString *desc) {
+        archInfo.formName = name;
+        archInfo.formDesc = desc;
         
-        [archInfo generateIpa];
-        [progressController endIndeterminate];
+        // 更新UI
+        WBProgressViewController * progressController = [self progressViewController];
+        [progressController beginIndeterminate];
+        alert.messageText = @"正在创建ipa, 稍后...";
+        [alert.accessoryView removeFromSuperview];
+        alert.accessoryView = progressController.view;
+        [alert layout];
         
-        dispatch_async(dispatch_get_main_queue(), ^{
-            WBOTAUploadViewController *uploadController = [self uploadViewController];
-            alert.messageText = @"请填写相关的包信息";
-            [alert.accessoryView removeFromSuperview];
-            alert.accessoryView = uploadController.view;
-            [alert layout];
+        // 在子线程创建Ipa包
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            [archInfo generateIpa];
             
-            // 先添加到界面上，再填充内容
-            [uploadController resetFormInfoForArchInfo:archInfo];
-            [uploadController setUploadBlock:^(NSString *name, NSString *desc) {
-                archInfo.formName = name;
-                archInfo.formDesc = desc;
-                
+            // 生成ipa后，主线程更新UI，变为进度条上传样式
+            dispatch_async(dispatch_get_main_queue(), ^{
                 // 修改为上传进度条
-                [alert.accessoryView removeFromSuperview];
-                alert.accessoryView = progressController.view;
-                [alert layout];
+                alert.messageText = @"正在上传到OTA...";
+                [progressController endIndeterminate];
                 
+                // 上传到OTA
                 [WBOTAUploader uploadArchive:archInfo
                                     progress:^(NSProgress * _Nonnull progress) {
                                         [progressController updateStateWithProgress:progress];
@@ -154,6 +159,8 @@
                                         [alert layout];
                                         NSButton *button = alert.buttons.firstObject;
                                         [button setTitle:@"OK"];
+                                        // 删除临时创建的ipa
+                                        [archInfo cleanTmpIpa];
                                     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                                         [alert.accessoryView removeFromSuperview];
                                         alert.accessoryView = nil;
@@ -161,12 +168,15 @@
                                         [alert layout];
                                         NSButton *button = alert.buttons.firstObject;
                                         [button setTitle:@"OK"];
+                                        // 删除临时创建的ipa
+                                        [archInfo cleanTmpIpa];
                                     }];
-            }];
+            });
         });
-    });
+    }];
     NSView *contentView = [self valueForKey:@"view"];
     NSWindow *window = contentView.window;
+    [window becomeKeyWindow];
     [alert beginSheetModalForWindow:window completionHandler:nil];
 }
 
