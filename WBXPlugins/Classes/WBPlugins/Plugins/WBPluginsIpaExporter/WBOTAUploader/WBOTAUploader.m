@@ -12,9 +12,14 @@
 
 @implementation WBOTAUploader
 
-+ (NSString *) OTAUploadURL
++ (NSString * _Nonnull) OTABaseUrl
 {
-    return @"http://10.208.88.115/ota/ios/upload";
+    return @"http://10.208.88.115/ota/ios";
+}
+
++ (NSString * _Nonnull) OTAUploadUrl;
+{
+    return [NSString stringWithFormat:@"%@/upload",[self OTABaseUrl]];
 }
 
 /*
@@ -29,6 +34,7 @@
  */
 + (void) uploadIpa:(NSString *)filepath
           bundleID:(NSString *)bundleID
+       appBundleID:(NSString *)appBundleID
               name:(NSString *)name
               desc:(NSString *)desc
            pkgType:(WBEPKG_TYPE)pkgType
@@ -41,13 +47,10 @@
     }
 
     NSMutableDictionary *paramDic = [NSMutableDictionary dictionary];
+    if (appBundleID) {
+        [paramDic setObject:appBundleID forKey:@"app_bundle_id"];
+    }
     if (bundleID) {
-        NSString *app_bundle_id = bundleID;
-        // app_bundle_id主要用于应用分类。微博Inhouse包也归类于微博
-        if ([app_bundle_id isEqualToString:@"com.sina.weibo.inhouse"]) {
-            app_bundle_id = @"com.sina.weibo";
-        }
-        [paramDic setObject:app_bundle_id forKey:@"app_bundle_id"];
         [paramDic setObject:bundleID forKey:@"force_bundle_id"];
     }
     if (name) {
@@ -61,7 +64,7 @@
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     // 默认是Json解析
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-    NSURLSessionDataTask *dataTask = [manager POST:[self OTAUploadURL] parameters:paramDic constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+    NSURLSessionDataTask *dataTask = [manager POST:[self OTAUploadUrl] parameters:paramDic constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         NSError *error = nil;
         NSURL *fileURL = [NSURL fileURLWithPath:filepath];
         if (fileURL) {
@@ -102,8 +105,17 @@
     if (name == nil) {
         name = archiveInfo.name;
     }
+    
+    NSString *app_bundle_id = archiveInfo.bundleID;
+    // app_bundle_id主要用于应用分类。微博Inhouse包也归类于微博
+    if ([app_bundle_id isEqualToString:@"com.sina.weibo.inhouse"]) {
+        app_bundle_id = @"com.sina.weibo";
+    }
+    archiveInfo.app_bundle_id = app_bundle_id;
+    
     [self uploadIpa:archiveInfo.ipaPath
            bundleID:archiveInfo.bundleID
+        appBundleID:archiveInfo.app_bundle_id
                name:name
                desc:archiveInfo.formDesc
             pkgType:WBEPKG_TYPE_Temp

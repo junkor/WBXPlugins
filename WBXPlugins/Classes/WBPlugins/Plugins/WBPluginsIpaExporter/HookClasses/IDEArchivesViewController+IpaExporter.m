@@ -116,6 +116,7 @@
 {
     NSAlert *alert = [[NSAlert alloc] init];
     [alert addButtonWithTitle:@"Cancel"];
+    [alert addButtonWithTitle:@"goto OTA"];
     
     WBOTAUploadViewController *uploadController = [self uploadViewController];
     alert.messageText = @"请填写相关的包信息";
@@ -177,10 +178,24 @@
     NSView *contentView = [self valueForKey:@"view"];
     NSWindow *window = contentView.window;
     [window becomeKeyWindow];
-    [alert beginSheetModalForWindow:window completionHandler:nil];
+    
+    __weak typeof(self) weakSelf = self;
+    [alert beginSheetModalForWindow:window completionHandler:^(NSModalResponse returnCode) {
+        if (returnCode == 1001) {
+            [weakSelf gotoOTA:archInfo];
+        }
+    }];
 }
 
-
-
+- (void) gotoOTA:(WBArchiveInfo *)archInfo
+{
+    NSString *baseUrl = [WBOTAUploader OTABaseUrl];
+    NSString *app_bundle_id = archInfo.app_bundle_id;
+    if (app_bundle_id == nil) {
+        app_bundle_id = @"com.sina.weibo";
+    }
+    NSString *otaUrl = [NSString stringWithFormat:@"%@/packages/%@?pkg_type=1",baseUrl,app_bundle_id];
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:otaUrl]];
+}
 
 @end

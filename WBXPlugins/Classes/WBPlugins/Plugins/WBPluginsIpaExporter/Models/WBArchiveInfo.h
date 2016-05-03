@@ -37,6 +37,8 @@
 // ipaCachePath : 生成ipa的位置，用于上传&上传成功后删除
 @property (nonatomic,strong) NSString *ipaPath;
 
+@property (nonatomic,strong) NSString *app_bundle_id;
+
 - (instancetype) initWithArchive:(IDEArchive *)archive
                    isMoveDesktop:(BOOL)isMoveDesktop;
 

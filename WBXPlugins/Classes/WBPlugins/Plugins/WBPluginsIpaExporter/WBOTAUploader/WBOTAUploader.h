@@ -19,15 +19,9 @@ typedef enum : NSUInteger {
 @class WBArchiveInfo;
 @interface WBOTAUploader : NSObject
 
-+ (void) uploadIpa:(NSString * _Nonnull)filepath
-          bundleID:(NSString * _Nonnull)bundleID
-              name:(NSString * _Nonnull)name
-              desc:(NSString * _Nullable)desc
-           pkgType:(WBEPKG_TYPE)pkgType
-          progress:(nullable void (^)(NSProgress * _Nonnull))uploadProgress
-           success:(nullable void (^)(NSURLSessionDataTask * _Nonnull task, id _Nullable responseObject))success
-           failure:(nullable void (^)(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error))failure;
++ (NSString * _Nonnull) OTABaseUrl;
 
++ (NSString * _Nonnull) OTAUploadUrl;
 
 + (void) uploadArchive:(WBArchiveInfo * _Nonnull)archiveInfo
               progress:(nullable void (^)(NSProgress * _Nonnull))uploadProgress
