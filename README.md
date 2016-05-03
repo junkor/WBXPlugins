@@ -5,6 +5,8 @@ An easy way to add plugins entrance to xcode.
 
 
 
+
+
 --
 
 ##implemented plugin functions
@@ -16,26 +18,42 @@ An easy way to add plugins entrance to xcode.
 
   If you want to export the IPA file from the archive, you can open the Organizer window, click the "WBPlugins" menu, to open "WBIpaExporter", you can export ipa to desktop or SINA OTA.
 
-  ![image]()
-  ![image]()
-  ![image]()
+* Open Organizer window.
 
-## Supported Xcode Versions
+  ![image](https://github.com/junkor/WBXPlugins/raw/master/Screenshots/Screenshot_0.png)
+  
+* Choose the archive in list, and click menu item "Export to OTA".
+
+  ![image](https://github.com/junkor/WBXPlugins/raw/master/Screenshots/Screenshot_1.png)
+
+* Input OTA Info to submit.
+
+  ![image](https://github.com/junkor/WBXPlugins/raw/master/Screenshots/Screenshot_2.png)
+  
+* Waiting for upload.
+
+  ![image](https://github.com/junkor/WBXPlugins/raw/master/Screenshots/Screenshot_3.png)
+
+* Check the OTA, your ipa file has already there.
+
+  ![image](https://github.com/junkor/WBXPlugins/raw/master/Screenshots/Screenshot_4.png)
+
+### Supported Xcode Versions
   - Xcode6
   - Xcode7
 
-## Manual build and install
+### Manual build and install
   - Download source code and open IpaExporter.xcodeproj with Xcode.
   - Select "Edit Scheme" and set "Build Configuration" as "Release"
   - Build it. It automatically installs the plugin into the correct directory.
   - Restart Xcode. (Make sure that the Xcode process is terminated entirely)
 
-## Manual install
-- Download WBXPlugins.xcplugin.zip.
+### Manual install
+- Download [WBXPlugins.xcplugin.zip](https://github.com/junkor/WBXPlugins/raw/master/Download/WBXPlugins.xcplugin.zip).
 - unzip the zip file to get the .xcplugin package.
 - copy the .xcplugin package to directory: `~/Library/Application Support/Developer/Shared/Xcode/Plug-ins/`
 
-## Manual uninstall 
+### Manual uninstall 
   Delete the following directory:
 
   `~/Library/Application Support/Developer/Shared/Xcode/Plug-ins/WBXPlugins.xcplugin`
