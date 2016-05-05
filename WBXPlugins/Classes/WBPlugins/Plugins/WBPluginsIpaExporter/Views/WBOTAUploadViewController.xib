@@ -61,7 +61,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="18" id="AtD-er-beW"/>
                     </constraints>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Version：" id="W2U-ix-ZFA">
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="版本：" id="W2U-ix-ZFA">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -73,7 +73,7 @@
                         <constraint firstAttribute="height" constant="22" id="wE4-D5-Bvo"/>
                         <constraint firstAttribute="width" constant="228" id="zbx-wg-EtA"/>
                     </constraints>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="名称必填" drawsBackground="YES" id="ze8-aY-CZo">
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="名称必填(version,不能包含中文)" drawsBackground="YES" id="ze8-aY-CZo">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>

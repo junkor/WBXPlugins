@@ -98,6 +98,7 @@
                 NSString *errHtmlMsg = [htmlResult substringWithRange:range];
                 if (errHtmlMsg.length > 23) {
                     errHtmlMsg = [errHtmlMsg substringWithRange:(NSRange){18,errHtmlMsg.length-23}];
+                    errHtmlMsg = [errHtmlMsg stringByReplacingOccurrencesOfString:@"Version" withString:@"名称"];
                 }
                 if (failure) {
                     failure(task,[NSError errorWithDomain:errHtmlMsg code:10001 userInfo:nil]);

@@ -165,7 +165,7 @@
                                     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                                         [alert.accessoryView removeFromSuperview];
                                         alert.accessoryView = nil;
-                                        alert.messageText = error.domain;
+                                        alert.messageText = [NSString stringWithFormat:@"ERROR: %@",error.domain];
                                         [alert layout];
                                         NSButton *button = alert.buttons.firstObject;
                                         [button setTitle:@"OK"];

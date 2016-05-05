@@ -36,7 +36,7 @@
 {
     self.nameTextField.stringValue = archInfo.name;
     self.bundleLabel.stringValue = [NSString stringWithFormat:@"BundleID: %@",archInfo.bundleID];
-    self.versionLabel.stringValue = [NSString stringWithFormat:@"Version: %@",archInfo.shortVersionString];
+    self.versionLabel.stringValue = [NSString stringWithFormat:@"版本: %@",archInfo.shortVersionString];
 }
 
 - (IBAction)uploadButtonClicked:(NSButton *)sender
