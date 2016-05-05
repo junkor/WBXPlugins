@@ -46,6 +46,13 @@
         return;
     }
 
+    if ([[NSFileManager defaultManager] fileExistsAtPath:filepath] == NO) {
+        if (failure) {
+            failure(nil,[NSError errorWithDomain:@"ipa生成失败，请重试。" code:10001 userInfo:nil]);
+        }
+        return;
+    }
+    
     NSMutableDictionary *paramDic = [NSMutableDictionary dictionary];
     if (appBundleID) {
         [paramDic setObject:appBundleID forKey:@"app_bundle_id"];
@@ -60,7 +67,6 @@
         [paramDic setObject:desc forKey:@"description"];
     }
     [paramDic setObject:@(pkgType) forKey:@"pkg_type"];
-    
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     // 默认是Json解析
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
@@ -82,6 +88,24 @@
             uploadProgress(progress);
         }
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        // 因为是网页的form，成功和失败都会返回状态码200，需要check返回回来的html内容找是否出错
+        if ([responseObject isKindOfClass:[NSData class]]) {
+            NSString *htmlResult = [[NSString alloc] initWithData:(NSData *)responseObject
+                                                         encoding:NSUTF8StringEncoding];
+            // 错误信息会出现在li标签里 <li class="error">该APP中已经存在相同Version的Package</li>
+            NSRange range = [htmlResult rangeOfString:@"<li class=\"error\">.*</li>" options:NSRegularExpressionSearch];
+            if (range.location != NSNotFound) {
+                NSString *errHtmlMsg = [htmlResult substringWithRange:range];
+                if (errHtmlMsg.length > 23) {
+                    errHtmlMsg = [errHtmlMsg substringWithRange:(NSRange){18,errHtmlMsg.length-23}];
+                }
+                if (failure) {
+                    failure(task,[NSError errorWithDomain:errHtmlMsg code:10001 userInfo:nil]);
+                }
+                return;
+            }
+        }
+        
         if (success) {
             success(task,responseObject);
         }
