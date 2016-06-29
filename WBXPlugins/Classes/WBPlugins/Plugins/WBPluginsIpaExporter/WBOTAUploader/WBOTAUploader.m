@@ -14,7 +14,7 @@
 
 + (NSString * _Nonnull) OTABaseUrl
 {
-    return @"http://10.208.88.115/ota/ios";
+    return @"http://ota.client.weibo.cn/ios";
 }
 
 + (NSString * _Nonnull) OTAUploadUrl;
